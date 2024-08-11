@@ -1,0 +1,34 @@
+# LAMMPS input script by Simon Gravelle
+# This input is part of a tutorial from https://lammpstutorials.github.io
+# Last tested using the 2Aug2023 stable LAMMPS version
+# This file was released under the GNU general public license v3.0
+
+# -------------	Initialization
+units		lj
+dimension 	2
+atom_style	atomic
+boundary	        p p p
+
+# ------------- System definition
+read_data	logo.data
+
+# ------------- Simulation settings
+pair_style	lj/cut 2.5
+mass		* 1
+pair_coeff	* * 1.0 1.0
+neigh_modify	every 1 delay 5 check yes
+
+# ------------- Run
+minimize	        1.0e-4 1.0e-6 1000 10000
+reset_timestep	0
+#velocity 	all create 1.0 4928459 mom yes rot yes dist gaussian
+fix		mynve all nve
+fix		mylgv all langevin 1.0 1.0 0.1 1530917 zero yes
+fix		myefn all enforce2d
+timestep         0.005
+
+dump viz all image 100 dark-*.ppm type type size 800 800 zoom 1.452 shiny 0.1 fsaa yes view 0 0 box no 0.025 axes no 0.0 0.0
+dump_modify viz pad 9 backcolor black adiam 1 22 adiam 2 17 acolor 1 yellow acolor 2 blue
+thermo		100
+
+run		100
