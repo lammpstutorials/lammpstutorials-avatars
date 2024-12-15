@@ -24,13 +24,13 @@ group PEG type C CPos H HC OAlc OE
 # adiam OW 0.2 adiam HW 0.2 &
 # adiam C 2.8 adiam CPos 2.8 adiam OAlc 2.6 &
 # adiam H 1.4 adiam HC 1.4 adiam OE 2.6
-dump mydmp all atom 1000 dump.lammpstrj
+dump mydmp all atom 2000 dump.lammpstrj
 
-fix mynpt all npt temp 300 300 100 x 1 1 1000
+fix mynvt all nvt temp 650 650 100
 fix myrct PEG recenter 0 0 0 shift all
 timestep 1.0
 
 thermo 500
-run 10000
+run 20000
 
 # write_data merge.data # uncomment to write a .data file as well
