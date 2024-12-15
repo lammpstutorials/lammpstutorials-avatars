@@ -34,6 +34,9 @@ tutorials avatars and logos.
     <a href="">
         <img src="tutorial6/avatar-dark.png" width="32%" />
     </a>
+    <a href="">
+        <img src="tutorial7/avatar-dark.png" width="32%" />
+    </a>
 </p>
 
 ## Rules for VMD images
