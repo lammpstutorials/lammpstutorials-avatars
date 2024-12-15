@@ -1,0 +1,32 @@
+
+units real
+atom_style full
+
+read_data decorated.data
+
+pair_style reaxff NULL safezone 3.0 mincap 150
+pair_coeff * * reaxCHOFe.inc Si O H
+fix myqeq all qeq/reaxff 1 0.0 10.0 1.0e-6 reaxff maxiter 400
+
+group grpSi type Si
+group grpO type O
+group grpH type H
+variable qSi equal charge(grpSi)/count(grpSi)
+variable qO equal charge(grpO)/count(grpO)
+variable qH equal charge(grpH)/(count(grpH)+1e-10)
+variable vq atom q
+
+thermo 200
+thermo_style custom step temp etotal press vol v_qSi v_qO v_qH
+#dump viz all image 100 myimage-*.ppm q &
+#  type shiny 0.1 box no 0.01 view 180 90 zoom 2.3 size 1200 500
+#dump_modify viz adiam Si 2.6 adiam O 2.3 adiam H 1.0 &
+#  backcolor white amap -1 2 ca 0.0 3 min royalblue &
+#  0 green max orangered
+dump mydmp all custom 1000 dump.lammpstrj id type x y z q
+
+fix mynvt all nvt temp 300.0 300.0 100
+timestep 0.5
+
+run 10000
+
