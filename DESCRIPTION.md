@@ -8,4 +8,4 @@ tutorials avatars and logos.
 ## Rules for VMD images
 
 By default, material parameters for images generated with VMD use
-Diffuse=0.56, Specular=0.12, and Shininess=0.29.  
+Ambiant=0.17, Diffuse=0.56, Specular=0.12, and Shininess=0.29.  
