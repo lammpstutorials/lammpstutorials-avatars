@@ -7,12 +7,13 @@ list in "files.txt".
 -->
 
 
-# A Logo for LAMMPS tutorials
+# LAMMPS tutorials logo and avatars
 
 The repository contains the script for generating LAMMPS
-tutorials logo.
+tutorials avatars and logos.
 
-![Logo](logo-dark.png)
+![Logo](logo/logo-dark.png)
+
 
 ## Authors
 
