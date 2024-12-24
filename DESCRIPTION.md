@@ -1,7 +1,7 @@
-# LAMMPS tutorials logo and avatars
+# LAMMPS tutorials' logo and avatars
 
-The repository contains the script for generating LAMMPS
-tutorials avatars and logos.
+The repository contains the script for generating the
+avatars and logos of LAMMPS tutorials.
 
 <p float="left">
     <a href="">
@@ -32,8 +32,3 @@ tutorials avatars and logos.
         <img src="tutorial8/avatar-dark.png" width="32%" />
     </a>
 </p>
-
-## Rules for VMD images
-
-By default, material parameters for images generated with VMD use
-Ambiant=0.17, Diffuse=0.56, Specular=0.12, and Shininess=0.29.  
