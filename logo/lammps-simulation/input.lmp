@@ -27,8 +27,12 @@ fix		mylgv all langevin 1.0 1.0 0.1 1530917 zero yes
 fix		myefn all enforce2d
 timestep         0.005
 
-dump viz all image 100 dark-*.ppm type type size 800 800 zoom 1.452 shiny 0.1 fsaa yes view 0 0 box no 0.025 axes no 0.0 0.0
-dump_modify viz pad 9 backcolor black adiam 1 22 adiam 2 17 acolor 1 yellow acolor 2 blue
+dump viz1 all image 100 dark-*.ppm type type size 800 800 zoom 1.452 shiny 0.1 fsaa yes view 0 0 box no 0.025 axes no 0.0 0.0
+dump_modify viz1 pad 9 backcolor black adiam 1 22 adiam 2 17 acolor 1 yellow acolor 2 blue
+
+dump viz2 all image 100 light-*.ppm type type size 800 800 zoom 1.452 shiny 0.1 fsaa yes view 0 0 box no 0.025 axes no 0.0 0.0
+dump_modify viz2 pad 9 backcolor white adiam 1 22 adiam 2 17 acolor 1 yellow acolor 2 blue
+
 thermo		100
 
 run		100
