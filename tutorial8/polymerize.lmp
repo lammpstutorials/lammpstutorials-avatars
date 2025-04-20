@@ -40,10 +40,16 @@ group CNT molecule 1 2 3
 fix myrec CNT recenter NULL 0 0 shift all
 fix myspr all spring/self 0.1
 
+write_dump all custom dump_i.lammpstrj id mol type xu yu zu
+
 thermo 200
 
 run 50000
 
 reset_atoms image all
 
-write_dump all custom dump.lammpstrj id mol type xu yu zu
+write_dump all custom dump_f.lammpstrj id mol type xu yu zu
+
+# For video making
+# dump myDump all custom 10 dump.lammpstrj id mol type xu yu zu
+# run 1000
